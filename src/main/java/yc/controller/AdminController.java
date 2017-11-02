@@ -1,7 +1,6 @@
 package yc.controller;
 
-import yc.po.user.UserCustom;
-import yc.po.user.UserQueryVo;
+import yc.bean.user.*;
 import yc.service.UserService;
 import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresRoles;
@@ -36,8 +35,9 @@ public class AdminController {
     //查看注册用户
     @RequiresRoles(value={"blogger","administrator"},logical = Logical.OR)
     @RequestMapping("/checkUserList")
-    private String checkUserList(UserQueryVo userQueryVo, Model model) {
-        List<UserCustom> userList = userService.getUserList(userQueryVo);
+    public String checkUserList(UserQueryVo userQueryVo, Model model) {
+        List<UserCustom> userList = userService.getAllUser();
+       // List<UserCustom> userList = userService.getUserList(userQueryVo);
         model.addAttribute("userList", userList);
         return "admin/userList";
     }
@@ -45,7 +45,7 @@ public class AdminController {
     //查看正在登录的用户
     @RequiresRoles(value={"blogger","administrator"},logical = Logical.OR)
     @RequestMapping("/checkSessionList")
-    private String checkSessionList() {
+    public String checkSessionList() {
         Collection<Session> sessions = sessionDAO.getActiveSessions();
         System.out.println(sessions.size());
         return null;

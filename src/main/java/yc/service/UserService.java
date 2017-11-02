@@ -1,7 +1,6 @@
 package yc.service;
 
-import yc.po.user.UserCustom;
-import yc.po.user.UserQueryVo;
+import yc.bean.user.*;
 import org.apache.shiro.session.Session;
 
 import java.util.List;
@@ -39,4 +38,5 @@ public interface UserService {
     //用户查询列表
     public List<UserCustom> getUserList(UserQueryVo userQueryVo);
 
+    public List<UserCustom> getAllUser();
 }

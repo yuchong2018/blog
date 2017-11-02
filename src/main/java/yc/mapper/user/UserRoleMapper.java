@@ -1,7 +1,7 @@
 package yc.mapper.user;
 
-import yc.po.user.UserRole;
-import yc.po.user.UserRoleExample;
+import yc.bean.user.UserRole;
+import yc.bean.user.UserRoleExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

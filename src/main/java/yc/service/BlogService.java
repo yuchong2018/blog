@@ -1,6 +1,6 @@
 package yc.service;
 
-import yc.po.blog.Blog;
+import yc.bean.blog.Blog;
 
 import java.util.List;
 

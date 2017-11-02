@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="yc.mapper.user.UserMapper" >
-  <resultMap id="BaseResultMap" type="yc.po.user.User" >
+  <resultMap id="BaseResultMap" type="yc.bean.user.User" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="userName" property="username" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
@@ -74,7 +74,7 @@
   <sql id="Base_Column_List" >
     id, userName, password, createTime, lastTime, email, sex, salt, picture, locked
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="yc.po.user.UserExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="yc.bean.user.UserExample" >
     select
     <if test="distinct" >
       distinct
@@ -98,13 +98,13 @@
     delete from user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="yc.po.user.UserExample" >
+  <delete id="deleteByExample" parameterType="yc.bean.user.UserExample" >
     delete from user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="yc.po.user.User" >
+  <insert id="insert" parameterType="yc.bean.user.User" >
     insert into user (id, userName, password, 
       createTime, lastTime, email, 
       sex, salt, picture, locked
@@ -114,7 +114,7 @@
       #{sex,jdbcType=CHAR}, #{salt,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR}, #{locked,jdbcType=BIT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="yc.po.user.User" >
+  <insert id="insertSelective" parameterType="yc.bean.user.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -181,7 +181,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="yc.po.user.UserExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="yc.bean.user.UserExample" resultType="java.lang.Integer" >
     select count(*) from user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -241,7 +241,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="yc.po.user.User" >
+  <update id="updateByPrimaryKeySelective" parameterType="yc.bean.user.User" >
     update user
     <set >
       <if test="username != null" >
@@ -274,7 +274,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="yc.po.user.User" >
+  <update id="updateByPrimaryKey" parameterType="yc.bean.user.User" >
     update user
     set userName = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},

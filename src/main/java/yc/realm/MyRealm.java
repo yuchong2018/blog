@@ -1,6 +1,6 @@
 package yc.realm;
 
-import yc.po.user.UserCustom;
+import yc.bean.user.UserCustom;
 import yc.service.UserService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;

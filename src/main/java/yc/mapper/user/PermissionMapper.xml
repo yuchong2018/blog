@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="yc.mapper.user.PermissionMapper" >
-  <resultMap id="BaseResultMap" type="yc.po.user.Permission" >
+  <resultMap id="BaseResultMap" type="yc.bean.user.Permission" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="permissionName" property="permissionname" jdbcType="VARCHAR" />
   </resultMap>
@@ -66,7 +66,7 @@
   <sql id="Base_Column_List" >
     id, permissionName
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="yc.po.user.PermissionExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="yc.bean.user.PermissionExample" >
     select
     <if test="distinct" >
       distinct
@@ -90,17 +90,17 @@
     delete from permission
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="yc.po.user.PermissionExample" >
+  <delete id="deleteByExample" parameterType="yc.bean.user.PermissionExample" >
     delete from permission
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="yc.po.user.Permission" >
+  <insert id="insert" parameterType="yc.bean.user.Permission" >
     insert into permission (id, permissionName)
     values (#{id,jdbcType=INTEGER}, #{permissionname,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="yc.po.user.Permission" >
+  <insert id="insertSelective" parameterType="yc.bean.user.Permission" >
     insert into permission
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -119,7 +119,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="yc.po.user.PermissionExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="yc.bean.user.PermissionExample" resultType="java.lang.Integer" >
     select count(*) from permission
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -147,7 +147,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="yc.po.user.Permission" >
+  <update id="updateByPrimaryKeySelective" parameterType="yc.bean.user.Permission" >
     update permission
     <set >
       <if test="permissionname != null" >
@@ -156,7 +156,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="yc.po.user.Permission" >
+  <update id="updateByPrimaryKey" parameterType="yc.bean.user.Permission" >
     update permission
     set permissionName = #{permissionname,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}

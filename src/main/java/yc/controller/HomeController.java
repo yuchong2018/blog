@@ -1,6 +1,6 @@
 package yc.controller;
 
-import yc.po.blog.Blog;
+import yc.bean.blog.Blog;
 import yc.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

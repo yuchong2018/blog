@@ -1,8 +1,7 @@
 package yc.mapper.user;
 
 import org.springframework.stereotype.Repository;
-import yc.po.user.UserCustom;
-import yc.po.user.UserQueryVo;
+import yc.bean.user.*;
 
 import java.util.List;
 import java.util.Set;
@@ -25,4 +24,5 @@ public interface UserCustomMapper {
     //用户查询列表
     public List<UserCustom> getUserList(UserQueryVo userQueryVo);
 
+    List<UserCustom> getAllUser();
 }

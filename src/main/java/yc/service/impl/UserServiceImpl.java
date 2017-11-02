@@ -3,16 +3,14 @@ package yc.service.impl;
 import yc.mapper.user.UserCustomMapper;
 import yc.mapper.user.UserMapper;
 import yc.mapper.user.UserRoleMapper;
-import yc.po.user.*;
+import yc.bean.user.*;
 import yc.service.UserService;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import yc.po.user.*;
 
-import javax.annotation.Resource;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -21,7 +19,7 @@ import java.util.Set;
 /**
  * Created by song9 on 2016/12/29.
  */
-@Service("UserService")
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired(required=false)
@@ -106,10 +104,15 @@ public class UserServiceImpl implements UserService {
         userMapper.updateByPrimaryKeySelective(userCustom);
     }
 
-    //用户查询列表
+    //用户查询列表 wrong
     @Override
     public List<UserCustom> getUserList(UserQueryVo userQueryVo) {
         return userCustomMapper.getUserList(userQueryVo);
+    }
+
+    @Override
+    public List<UserCustom> getAllUser() {
+        return userCustomMapper.getAllUser();
     }
 
     //@Override

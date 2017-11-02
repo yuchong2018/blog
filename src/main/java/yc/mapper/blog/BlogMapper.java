@@ -1,8 +1,8 @@
 package yc.mapper.blog;
 
 import org.springframework.stereotype.Repository;
-import yc.po.blog.Blog;
-import yc.po.blog.BlogExample;
+import yc.bean.blog.Blog;
+import yc.bean.blog.BlogExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

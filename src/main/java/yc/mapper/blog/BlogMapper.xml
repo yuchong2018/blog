@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="yc.mapper.blog.BlogMapper" >
-  <resultMap id="BaseResultMap" type="yc.po.blog.Blog" >
+  <resultMap id="BaseResultMap" type="yc.bean.blog.Blog" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
@@ -9,7 +9,7 @@
     <result column="tagId" property="tagid" jdbcType="SMALLINT" />
     <result column="locked" property="locked" jdbcType="BIT" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="yc.po.blog.Blog" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="yc.bean.blog.Blog" extends="BaseResultMap" >
     <result column="text" property="text" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -76,7 +76,7 @@
   <sql id="Blob_Column_List" >
     text
   </sql>
-  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="yc.po.blog.BlogExample" >
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="yc.bean.blog.BlogExample" >
     select
     <if test="distinct" >
       distinct
@@ -92,7 +92,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="yc.po.blog.BlogExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="yc.bean.blog.BlogExample" >
     select
     <if test="distinct" >
       distinct
@@ -118,13 +118,13 @@
     delete from blog
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="yc.po.blog.BlogExample" >
+  <delete id="deleteByExample" parameterType="yc.bean.blog.BlogExample" >
     delete from blog
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="yc.po.blog.Blog" >
+  <insert id="insert" parameterType="yc.bean.blog.Blog" >
     insert into blog (id, title, createTime, 
       alterTime, tagId, locked, 
       text)
@@ -132,7 +132,7 @@
       #{altertime,jdbcType=TIMESTAMP}, #{tagid,jdbcType=SMALLINT}, #{locked,jdbcType=BIT}, 
       #{text,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="yc.po.blog.Blog" >
+  <insert id="insertSelective" parameterType="yc.bean.blog.Blog" >
     insert into blog
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -181,7 +181,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="yc.po.blog.BlogExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="yc.bean.blog.BlogExample" resultType="java.lang.Integer" >
     select count(*) from blog
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -241,7 +241,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="yc.po.blog.Blog" >
+  <update id="updateByPrimaryKeySelective" parameterType="yc.bean.blog.Blog" >
     update blog
     <set >
       <if test="title != null" >
@@ -265,7 +265,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="yc.po.blog.Blog" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="yc.bean.blog.Blog" >
     update blog
     set title = #{title,jdbcType=VARCHAR},
       createTime = #{createtime,jdbcType=TIMESTAMP},
@@ -275,7 +275,7 @@
       text = #{text,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="yc.po.blog.Blog" >
+  <update id="updateByPrimaryKey" parameterType="yc.bean.blog.Blog" >
     update blog
     set title = #{title,jdbcType=VARCHAR},
       createTime = #{createtime,jdbcType=TIMESTAMP},

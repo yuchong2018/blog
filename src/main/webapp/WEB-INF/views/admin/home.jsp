@@ -37,7 +37,7 @@
     <div id="mid-col">
         <div class="body-wrap">
             <a href="${pageContext.request.contextPath}/admin/checkUserList">checkUserList</a>
-            <a href="${pageContext.request.contextPath}/admin/checkSessionList">checkUserList</a>
+            <a href="${pageContext.request.contextPath}/admin/checkSessionList">checkSessionList</a>
         </div>
     </div>
 </div>

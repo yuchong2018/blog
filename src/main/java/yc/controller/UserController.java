@@ -1,6 +1,6 @@
 package yc.controller;
 
-import yc.po.user.UserCustom;
+import yc.bean.user.UserCustom;
 import yc.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;

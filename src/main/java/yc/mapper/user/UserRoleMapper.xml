@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="yc.mapper.user.UserRoleMapper" >
-  <resultMap id="BaseResultMap" type="yc.po.user.UserRole" >
+  <resultMap id="BaseResultMap" type="yc.bean.user.UserRole" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="userId" property="userid" jdbcType="INTEGER" />
     <result column="roleId" property="roleid" jdbcType="INTEGER" />
@@ -67,7 +67,7 @@
   <sql id="Base_Column_List" >
     id, userId, roleId
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="yc.po.user.UserRoleExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="yc.bean.user.UserRoleExample" >
     select
     <if test="distinct" >
       distinct
@@ -91,19 +91,19 @@
     delete from user_role
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="yc.po.user.UserRoleExample" >
+  <delete id="deleteByExample" parameterType="yc.bean.user.UserRoleExample" >
     delete from user_role
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="yc.po.user.UserRole" >
+  <insert id="insert" parameterType="yc.bean.user.UserRole" >
     insert into user_role (id, userId, roleId
       )
     values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{roleid,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="yc.po.user.UserRole" >
+  <insert id="insertSelective" parameterType="yc.bean.user.UserRole" >
     insert into user_role
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -128,7 +128,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="yc.po.user.UserRoleExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="yc.bean.user.UserRoleExample" resultType="java.lang.Integer" >
     select count(*) from user_role
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -160,7 +160,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="yc.po.user.UserRole" >
+  <update id="updateByPrimaryKeySelective" parameterType="yc.bean.user.UserRole" >
     update user_role
     <set >
       <if test="userid != null" >
@@ -172,7 +172,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="yc.po.user.UserRole" >
+  <update id="updateByPrimaryKey" parameterType="yc.bean.user.UserRole" >
     update user_role
     set userId = #{userid,jdbcType=INTEGER},
       roleId = #{roleid,jdbcType=INTEGER}

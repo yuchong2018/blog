@@ -1,8 +1,8 @@
 package yc.service.impl;
 
 import yc.mapper.blog.BlogMapper;
-import yc.po.blog.Blog;
-import yc.po.blog.BlogExample;
+import yc.bean.blog.Blog;
+import yc.bean.blog.BlogExample;
 import yc.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
